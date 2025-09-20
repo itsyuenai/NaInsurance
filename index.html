@@ -1,0 +1,649 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NaInsurance - Platform Asuransi Terpercaya</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <!-- Elements -->
+    <div class="floating-elements">
+        <div class="floating-element" data-speed="0.5">
+            <i class="fas fa-shield-alt"></i>
+        </div>
+        <div class="floating-element" data-speed="0.3">
+            <i class="fas fa-heart"></i>
+        </div>
+        <div class="floating-element" data-speed="0.7">
+            <i class="fas fa-car"></i>
+        </div>
+        <div class="floating-element" data-speed="0.4">
+            <i class="fas fa-home"></i>
+        </div>
+        <div class="floating-element" data-speed="0.6">
+            <i class="fas fa-star"></i>
+        </div>
+    </div>
+
+    <header class="header-parallax">
+        <nav class="container">
+            <div class="logo">
+                <i class="fas fa-shield-alt"></i> NaInsurance
+            </div>
+            <ul class="nav-links">
+                <li><a onclick="showPage('home')">Beranda</a></li>
+                <li><a onclick="scrollToProducts()">Produk</a></li>
+                <li><a onclick="showPage('history')">Riwayat</a></li>
+                <li><a onclick="showHelpModal()">Bantuan</a></li>
+            </ul>
+            <div class="auth-buttons" id="authButtons">
+                <a class="btn btn-outline" onclick="showPage('login')">
+                    <i class="fas fa-sign-in-alt"></i> Masuk
+                </a>
+                <a class="btn btn-primary" onclick="showPage('signup')">
+                    <i class="fas fa-user-plus"></i> Daftar
+                </a>
+            </div>
+            <div class="user-menu" id="userMenu">
+                <span class="user-name" id="userName"></span>
+                <a class="btn btn-outline" onclick="logout()">
+                    <i class="fas fa-sign-out-alt"></i> Keluar
+                </a>
+            </div>
+            <div class="mobile-menu-toggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <!-- Home Page -->
+        <div id="homePage" class="page-container active">
+            <section class="hero-parallax">
+                <div class="parallax-bg" data-speed="0.5"></div>
+                <div class="hero-content" data-speed="0.8">
+                    <div class="container">
+                        <h1 class="hero-title">Temukan Asuransi Terbaik untuk Anda</h1>
+                        <p class="hero-subtitle">NaInsurance adalah platform terpercaya untuk membandingkan dan membeli produk asuransi dari berbagai perusahaan ternama</p>
+                        <div class="hero-buttons">
+                            <a class="btn btn-primary btn-large pulse" onclick="scrollToProducts()">
+                                <i class="fas fa-search"></i> Jelajahi Produk
+                            </a>
+                            <a class="btn btn-outline btn-large" onclick="showHelpModal()">
+                                <i class="fas fa-info-circle"></i> Pelajari Lebih
+                            </a>
+                        </div>
+                        <div class="hero-stats">
+                            <div class="stat-item" data-reveal>
+                                <div class="stat-number">1000+</div>
+                                <div class="stat-label">Rumah Sakit</div>
+                            </div>
+                            <div class="stat-item" data-reveal>
+                                <div class="stat-number">50K+</div>
+                                <div class="stat-label">Pelanggan</div>
+                            </div>
+                            <div class="stat-item" data-reveal>
+                                <div class="stat-number">99%</div>
+                                <div class="stat-label">Kepuasan</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="scroll-indicator">
+                    <span>Scroll untuk melihat produk</span>
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+            </section>
+
+            <section class="products-section" id="products">
+                <div class="container">
+                    <div class="section-header" data-reveal>
+                        <h2 class="section-title">Produk Asuransi Kami</h2>
+                        <p class="section-subtitle">Perlindungan terbaik untuk setiap aspek kehidupan Anda</p>
+                    </div>
+                    <div class="product-grid">
+                        <div class="product-card" onclick="showProductDetail('health')" data-reveal>
+                            <div class="product-header">
+                                <div class="product-icon-wrapper">
+                                    <i class="bx bx-heart product-icon health"></i>
+                                </div>
+                                <h3>Asuransi Kesehatan</h3>
+                                <p>Perlindungan komprehensif untuk kesehatan Anda dan keluarga</p>
+                            </div>
+                            <ul class="product-features">
+                                <li><i class="fas fa-check"></i> Cashless di 1000+ rumah sakit</li>
+                                <li><i class="fas fa-check"></i> Limit hingga Rp 2 Miliar</li>
+                                <li><i class="fas fa-check"></i> Premi mulai Rp 200 ribu/bulan</li>
+                                <li><i class="fas fa-check"></i> Manfaat rawat inap & rawat jalan</li>
+                            </ul>
+                            <div class="product-action">
+                                <span class="btn btn-primary">Lihat Detail</span>
+                            </div>
+                        </div>
+
+                        <div class="product-card" onclick="showProductDetail('car')" data-reveal>
+                            <div class="product-header">
+                                <div class="product-icon-wrapper">
+                                    <i class="bx bx-car product-icon car"></i>
+                                </div>
+                                <h3>Asuransi Mobil</h3>
+                                <p>Lindungi kendaraan Anda dari berbagai risiko dengan premi terjangkau</p>
+                            </div>
+                            <ul class="product-features">
+                                <li><i class="fas fa-check"></i> All Risk & Total Loss Only</li>
+                                <li><i class="fas fa-check"></i> Bengkel rekanan terluas</li>
+                                <li><i class="fas fa-check"></i> Layanan derek gratis</li>
+                                <li><i class="fas fa-check"></i> Ganti rugi cepat</li>
+                            </ul>
+                            <div class="product-action">
+                                <span class="btn btn-primary">Lihat Detail</span>
+                            </div>
+                        </div>
+
+                        <div class="product-card" onclick="showProductDetail('life')" data-reveal>
+                            <div class="product-header">
+                                <div class="product-icon-wrapper">
+                                    <i class="bx bx-shield-alt-2 product-icon life"></i>
+                                </div>
+                                <h3>Asuransi Jiwa</h3>
+                                <p>Berikan perlindungan finansial terbaik untuk masa depan keluarga</p>
+                            </div>
+                            <ul class="product-features">
+                                <li><i class="fas fa-check"></i> Uang pertanggungan hingga Rp 10 M</li>
+                                <li><i class="fas fa-check"></i> Premi terjangkau</li>
+                                <li><i class="fas fa-check"></i> Manfaat investasi</li>
+                                <li><i class="fas fa-check"></i> Pencairan mudah</li>
+                            </ul>
+                            <div class="product-action">
+                                <span class="btn btn-primary">Lihat Detail</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Trusted Page -->
+            <section class="trust-section" data-reveal>
+                <div class="container">
+                    <div class="trust-content">
+                        <h3>Dipercaya Oleh Ribuan Keluarga Indonesia</h3>
+                        <p>Bergabunglah dengan lebih dari 50,000 keluarga yang telah mempercayakan perlindungan mereka kepada kami.</p>
+                        <div class="trust-features">
+                            <div class="trust-feature">
+                                <i class="fas fa-award"></i>
+                                <span>Award Terbaik 2025</span>
+                            </div>
+                            <div class="trust-feature">
+                                <i class="fas fa-lock"></i>
+                                <span>Data Aman & Terjamin</span>
+                            </div>
+                            <div class="trust-feature">
+                                <i class="fas fa-headset"></i>
+                                <span>Support 24/7</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <!-- Login Page -->
+        <div id="loginPage" class="page-container">
+            <div class="form-page animate-form">
+                <div class="form-header">
+                    <i class="fas fa-user-circle"></i>
+                    <h2 class="form-title">Masuk ke Akun Anda</h2>
+                    <p>Selamat datang kembali! Silakan masuk ke akun Anda.</p>
+                </div>
+                <form onsubmit="handleLogin(event)">
+                    <div class="form-group">
+                        <label for="loginEmail">
+                            <i class="fas fa-envelope"></i>
+                            Email
+                        </label>
+                        <input type="email" id="loginEmail" required placeholder="Masukkan email Anda">
+                        <div class="error-message" id="loginEmailError"></div>
+                    </div>
+                    <div class="form-group">
+                        <label for="loginPassword">
+                            <i class="fas fa-lock"></i>
+                            Kata Sandi
+                        </label>
+                        <input type="password" id="loginPassword" required placeholder="Masukkan kata sandi">
+                        <div class="error-message" id="loginPasswordError"></div>
+                    </div>
+                    <div class="forgot-password-link">
+                        <a href="#" onclick="showPage('forgotPassword')">Lupa Kata Sandi?</a>
+                    </div>
+                    <div class="error-message" id="loginError"></div>
+                    <div class="success-message" id="loginSuccess"></div>
+                    <div class="form-actions">
+                        <button type="button" class="btn btn-outline" onclick="showPage('home')">Kembali</button>
+                        <button type="submit" class="btn btn-primary">Masuk</button>
+                    </div>
+                    <div class="form-footer">
+                        <p>Belum punya akun? <a href="#" onclick="showPage('signup')">Daftar di sini</a></p>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <!-- Signup -->
+        <div id="signupPage" class="page-container">
+            <div class="form-page animate-form">
+                <div class="form-header">
+                    <i class="fas fa-user-plus"></i>
+                    <h2 class="form-title">Buat Akun Baru</h2>
+                    <p>Bergabunglah dengan ribuan keluarga yang telah terlindungi</p>
+                </div>
+                <form onsubmit="handleSignUp(event)">
+                    <div class="form-group">
+                        <label for="signUpEmail">
+                            <i class="fas fa-envelope"></i>
+                            Email
+                        </label>
+                        <input type="email" id="signUpEmail" required placeholder="Masukkan email Anda">
+                        <div class="error-message" id="signUpEmailError"></div>
+                    </div>
+                    <div class="form-group">
+                        <label for="signUpPassword">
+                            <i class="fas fa-lock"></i>
+                            Kata Sandi
+                        </label>
+                        <input type="password" id="signUpPassword" required placeholder="Minimal 8 karakter">
+                        <div class="error-message" id="signUpPasswordError"></div>
+                    </div>
+                    <div class="form-group">
+                        <label for="signUpConfirmPassword">
+                            <i class="fas fa-lock"></i>
+                            Konfirmasi Kata Sandi
+                        </label>
+                        <input type="password" id="signUpConfirmPassword" required placeholder="Ulangi kata sandi">
+                        <div class="error-message" id="signUpConfirmPasswordError"></div>
+                    </div>
+                    <div class="form-group">
+                        <label for="signUpFullName">
+                            <i class="fas fa-user"></i>
+                            Nama Lengkap
+                        </label>
+                        <input type="text" id="signUpFullName" required placeholder="Masukkan nama lengkap">
+                        <div class="error-message" id="signUpFullNameError"></div>
+                    </div>
+                    <div class="form-group">
+                        <label for="signUpPhone">
+                            <i class="fas fa-phone"></i>
+                            Nomor Handphone
+                        </label>
+                        <input type="text" id="signUpPhone" required placeholder="08xxxxxxxxxx">
+                        <div class="error-message" id="signUpPhoneError"></div>
+                    </div>
+                    <div class="error-message" id="signUpError"></div>
+                    <div class="success-message" id="signUpSuccess"></div>
+                    <div class="form-actions">
+                        <button type="button" class="btn btn-outline" onclick="showPage('home')">Kembali</button>
+                        <button type="submit" class="btn btn-primary">Daftar</button>
+                    </div>
+                    <div class="form-footer">
+                        <p>Sudah punya akun? <a href="#" onclick="showPage('login')">Masuk di sini</a></p>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <!-- Lupa Pw -->
+        <div id="forgotPasswordPage" class="page-container">
+            <div class="form-page animate-form">
+                <div class="form-header">
+                    <i class="fas fa-key"></i>
+                    <h2 class="form-title">Reset Kata Sandi</h2>
+                    <p>Masukkan email Anda yang terdaftar. Kami akan 'mengirimkan' instruksi untuk mereset kata sandi Anda.</p>
+                </div>
+                <form onsubmit="handleForgotPassword(event)">
+                    <div class="form-group">
+                        <label for="forgotEmail">
+                            <i class="fas fa-envelope"></i>
+                            Email
+                        </label>
+                        <input type="email" id="forgotEmail" required placeholder="Masukkan email terdaftar">
+                    </div>
+                    <div class="success-message" id="forgotSuccess"></div>
+                    <div class="error-message" id="forgotError"></div>
+                    <div class="form-actions">
+                        <button type="button" class="btn btn-outline" onclick="showPage('login')">Kembali</button>
+                        <button type="submit" class="btn btn-primary">Kirim Instruksi</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <!-- Reset Pw -->
+        <div id="resetPasswordPage" class="page-container">
+            <div class="form-page animate-form">
+                <div class="form-header">
+                    <i class="fas fa-shield-alt"></i>
+                    <h2 class="form-title">Masukkan Kata Sandi Baru</h2>
+                    <p>Buat kata sandi baru yang aman untuk akun Anda</p>
+                </div>
+                <form onsubmit="handleResetPassword(event)">
+                    <div class="form-group">
+                        <label for="resetPassword">
+                            <i class="fas fa-lock"></i>
+                            Kata Sandi Baru
+                        </label>
+                        <input type="password" id="resetPassword" required placeholder="Minimal 8 karakter">
+                        <div class="error-message" id="resetPasswordError"></div>
+                    </div>
+                    <div class="form-group">
+                        <label for="resetConfirmPassword">
+                            <i class="fas fa-lock"></i>
+                            Konfirmasi Kata Sandi Baru
+                        </label>
+                        <input type="password" id="resetConfirmPassword" required placeholder="Ulangi kata sandi baru">
+                        <div class="error-message" id="resetConfirmPasswordError"></div>
+                    </div>
+                    <div class="success-message" id="resetSuccess"></div>
+                    <div class="form-actions">
+                        <button type="submit" class="btn btn-primary">Simpan Kata Sandi</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <!-- Detail -->
+        <div id="detailPage" class="page-container">
+            <div class="detail-page animate-form">
+                <button class="btn btn-outline back-button" onclick="showPage('home')">
+                    <i class="fas fa-arrow-left"></i> Kembali
+                </button>
+                <div class="detail-header">
+                    <div class="detail-icon-wrapper">
+                        <i class="detail-icon" id="detailIcon"></i>
+                    </div>
+                    <h2 class="detail-title" id="detailTitle"></h2>
+                    <p class="detail-subtitle" id="detailSubtitle"></p>
+                </div>
+                <div class="detail-content" id="detailContent"></div>
+                <div class="detail-action">
+                    <button class="btn btn-primary btn-large pulse" onclick="startPurchaseFlow()">
+                        <i class="fas fa-shopping-cart"></i> Beli Sekarang
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Purchase Forms -->
+        <div id="purchaseCarPage" class="page-container">
+            <div class="form-page purchase-form animate-form">
+                <div class="form-header">
+                    <i class="bx bx-car"></i>
+                    <h2 class="form-title">Form Asuransi Mobil</h2>
+                    <p>Lengkapi data kendaraan Anda dengan benar</p>
+                </div>
+                <form id="purchaseCarForm" onsubmit="proceedToCheckout(event, 'car')">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="carBrand"><i class="fas fa-car"></i> Merk Mobil</label>
+                            <input type="text" id="carBrand" required placeholder="Toyota, Honda, dll">
+                        </div>
+                        <div class="form-group">
+                            <label for="carType"><i class="fas fa-cogs"></i> Jenis Mobil</label>
+                            <input type="text" id="carType" required placeholder="Sedan, SUV, dll">
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="carYear"><i class="fas fa-calendar"></i> Tahun Pembuatan</label>
+                            <input type="number" id="carYear" required min="1980" max="2025">
+                        </div>
+                        <div class="form-group">
+                            <label for="carPrice"><i class="fas fa-money-bill"></i> Harga Mobil (Rp)</label>
+                            <input type="number" id="carPrice" required step="1000000" placeholder="200000000">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="carPlate"><i class="fas fa-id-card"></i> Nomor Plat Mobil</label>
+                        <input type="text" id="carPlate" required placeholder="B 1234 XYZ">
+                    </div>
+                    <div class="form-group">
+                        <label for="carOwnerName"><i class="fas fa-user"></i> Nama Pemilik (sesuai STNK)</label>
+                        <input type="text" id="carOwnerName" required>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="carFrameNumber"><i class="fas fa-hashtag"></i> Nomor Rangka</label>
+                            <input type="text" id="carFrameNumber" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="carEngineNumber"><i class="fas fa-hashtag"></i> Nomor Mesin</label>
+                            <input type="text" id="carEngineNumber" required>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="carPhotos"><i class="fas fa-camera"></i> Upload Foto Kendaraan</label>
+                        <small>Foto: Depan, Belakang, Kiri, Kanan, Dashboard, Mesin</small>
+                        <input type="file" id="carPhotos" multiple accept="image/*">
+                    </div>
+                    <div class="premium-display-box">
+                        <button type="button" class="btn btn-outline" onclick="calculateCarPremium()">
+                            <i class="fas fa-calculator"></i> Hitung Premi
+                        </button>
+                        <div id="carPremiumResult" class="premium-result"></div>
+                    </div>
+                    <div class="form-actions">
+                        <button type="button" class="btn btn-outline" onclick="showPage('detail')">Kembali</button>
+                        <button type="submit" class="btn btn-primary">Lanjut ke Checkout</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <div id="purchaseHealthPage" class="page-container">
+            <div class="form-page purchase-form animate-form">
+                <div class="form-header">
+                    <i class="bx bx-heart"></i>
+                    <h2 class="form-title">Form Asuransi Kesehatan</h2>
+                    <p>Informasi kesehatan untuk menentukan premi yang tepat</p>
+                </div>
+                <form id="purchaseHealthForm" onsubmit="proceedToCheckout(event, 'health')">
+                    <div class="form-group">
+                        <label for="healthName"><i class="fas fa-user"></i> Nama Lengkap (sesuai KTP)</label>
+                        <input type="text" id="healthName" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="healthDob"><i class="fas fa-birthday-cake"></i> Tanggal Lahir</label>
+                        <input type="date" id="healthDob" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="healthOccupation"><i class="fas fa-briefcase"></i> Pekerjaan</label>
+                        <input type="text" id="healthOccupation" required placeholder="Karyawan, Wiraswasta, dll">
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="healthSmoker"><i class="fas fa-smoking"></i> Merokok?</label>
+                            <select id="healthSmoker" required>
+                                <option value="0">Tidak</option>
+                                <option value="1">Ya</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="healthHypertension"><i class="fas fa-heartbeat"></i> Riwayat Hipertensi?</label>
+                            <select id="healthHypertension" required>
+                                <option value="0">Tidak</option>
+                                <option value="1">Ya</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="healthDiabetes"><i class="fas fa-syringe"></i> Riwayat Diabetes?</label>
+                        <select id="healthDiabetes" required>
+                            <option value="0">Tidak</option>
+                            <option value="1">Ya</option>
+                        </select>
+                    </div>
+                    <div class="premium-display-box">
+                        <button type="button" class="btn btn-outline" onclick="calculateHealthPremium()">
+                            <i class="fas fa-calculator"></i> Hitung Premi
+                        </button>
+                        <div id="healthPremiumResult" class="premium-result"></div>
+                    </div>
+                    <div class="form-actions">
+                        <button type="button" class="btn btn-outline" onclick="showPage('detail')">Kembali</button>
+                        <button type="submit" class="btn btn-primary">Lanjut ke Checkout</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <div id="purchaseLifePage" class="page-container">
+            <div class="form-page purchase-form animate-form">
+                <div class="form-header">
+                    <i class="bx bx-shield-alt-2"></i>
+                    <h2 class="form-title">Form Asuransi Jiwa</h2>
+                    <p>Perlindungan terbaik untuk masa depan keluarga</p>
+                </div>
+                <form id="purchaseLifeForm" onsubmit="proceedToCheckout(event, 'life')">
+                    <div class="form-group">
+                        <label for="lifeName"><i class="fas fa-user"></i> Nama Lengkap (sesuai KTP)</label>
+                        <input type="text" id="lifeName" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="lifeDob"><i class="fas fa-birthday-cake"></i> Tanggal Lahir</label>
+                        <input type="date" id="lifeDob" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="lifeCoverage"><i class="fas fa-money-bill"></i> Besaran Uang Pertanggungan</label>
+                        <select id="lifeCoverage" required>
+                            <option value="1000000000">Rp 1.000.000.000</option>
+                            <option value="2000000000">Rp 2.000.000.000</option>
+                            <option value="3500000000">Rp 3.500.000.000</option>
+                            <option value="5000000000">Rp 5.000.000.000</option>
+                            <option value="10000000000">Rp 10.000.000.000</option>
+                        </select>
+                    </div>
+                    <div class="premium-display-box">
+                        <button type="button" class="btn btn-outline" onclick="calculateLifePremium()">
+                            <i class="fas fa-calculator"></i> Hitung Premi
+                        </button>
+                        <div id="lifePremiumResult" class="premium-result"></div>
+                    </div>
+                    <div class="form-actions">
+                        <button type="button" class="btn btn-outline" onclick="showPage('detail')">Kembali</button>
+                        <button type="submit" class="btn btn-primary">Lanjut ke Checkout</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <!-- Checkout Page -->
+        <div id="checkoutPage" class="page-container">
+            <div class="form-page animate-form">
+                <div class="form-header">
+                    <i class="fas fa-shopping-cart"></i>
+                    <h2 class="form-title">Checkout</h2>
+                    <p>Konfirmasi pembelian dan lakukan pembayaran</p>
+                </div>
+                <div class="checkout-summary">
+                    <div class="checkout-item">
+                        <h3>Ringkasan Pembelian</h3>
+                        <div class="checkout-detail">
+                            <span><strong>Produk:</strong></span>
+                            <span id="checkoutProduct"></span>
+                        </div>
+                        <div class="checkout-detail">
+                            <span><strong>Total Premi:</strong></span>
+                            <span id="checkoutPremium" class="premium-amount"></span>
+                        </div>
+                    </div>
+                    <div class="payment-methods">
+                        <h4><i class="fas fa-credit-card"></i> Metode Pembayaran</h4>
+                        <div class="payment-options">
+                            <div class="payment-option">
+                                <i class="fas fa-university"></i>
+                                <span>Virtual Account</span>
+                            </div>
+                            <div class="payment-option">
+                                <i class="fas fa-credit-card"></i>
+                                <span>Kartu Kredit</span>
+                            </div>
+                            <div class="payment-option">
+                                <i class="fas fa-mobile-alt"></i>
+                                <span>E-Wallet</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-actions">
+                    <button type="button" class="btn btn-outline" onclick="showPurchaseForm(currentInsuranceType)">Kembali</button>
+                    <button type="button" class="btn btn-primary pulse" onclick="finalizePurchase()">
+                        <i class="fas fa-lock"></i> Bayar Sekarang
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- History Page -->
+        <div id="historyPage" class="page-container">
+            <div class="history-page animate-form">
+                <div class="form-header">
+                    <i class="fas fa-history"></i>
+                    <h2 class="form-title">Riwayat Pembelian</h2>
+                    <p>Daftar polis asuransi yang telah Anda beli</p>
+                </div>
+                <div class="history-table-wrapper">
+                    <table class="history-table">
+                        <thead>
+                            <tr>
+                                <th><i class="fas fa-box"></i> Produk</th>
+                                <th><i class="fas fa-tag"></i> Jenis</th>
+                                <th><i class="fas fa-calendar"></i> Tanggal Pembelian</th>
+                                <th><i class="fas fa-money-bill"></i> Harga</th>
+                                <th><i class="fas fa-check-circle"></i> Status</th>
+                            </tr>
+                        </thead>
+                        <tbody id="historyTableBody"></tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <!-- Bantuan -->
+        <div id="helpModal" class="modal-overlay">
+            <div class="modal-content">
+                <span class="modal-close" onclick="hideHelpModal()">&times;</span>
+                <div class="modal-header">
+                    <i class="fas fa-question-circle"></i>
+                    <h2>Pusat Bantuan</h2>
+                </div>
+                <div class="faq-content">
+                    <div class="faq-item">
+                        <h4><i class="fas fa-user-plus"></i> Bagaimana cara mendaftar?</h4>
+                        <p>Klik tombol "Daftar" di pojok kanan atas, isi semua kolom yang diperlukan dengan data yang valid, lalu klik "Daftar". Anda akan otomatis diarahkan ke halaman login.</p>
+                    </div>
+                    <div class="faq-item">
+                        <h4><i class="fas fa-shopping-cart"></i> Bagaimana cara membeli asuransi?</h4>
+                        <p>Setelah login, pilih produk yang Anda inginkan dari halaman Beranda. Klik "Lihat Detail", lalu "Beli Sekarang". Isi formulir pengajuan, hitung premi, dan lanjutkan ke halaman checkout untuk menyelesaikan pembayaran.</p>
+                    </div>
+                    <div class="faq-item">
+                        <h4><i class="fas fa-shield-alt"></i> Apakah data saya aman?</h4>
+                        <p>Kami menggunakan enkripsi standar industri untuk melindungi data Anda. Informasi pribadi Anda hanya digunakan untuk keperluan verifikasi dan polis asuransi.</p>
+                    </div>
+                    <div class="faq-item">
+                        <h4><i class="fas fa-key"></i> Saya lupa kata sandi, apa yang harus dilakukan?</h4>
+                        <p>Klik link "Lupa Kata Sandi?" di halaman login dan ikuti instruksi yang diberikan untuk mengatur ulang kata sandi Anda.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
