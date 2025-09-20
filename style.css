@@ -671,7 +671,7 @@ main {
 }
 
 
-/* Bagian Kepercayaan (Trust Section) */
+/* Bagian Kepercayaan */
 
 .trust-section {
     padding: 4rem 0;
@@ -1009,9 +1009,7 @@ main {
 
 .payment-option.selected {
     border-color: #667eea;
-    /* Warna border jadi ungu */
     background: rgba(102, 126, 234, 0.05);
-    /* Latar belakang sedikit berwarna */
     box-shadow: var(--shadow-md);
     transform: translateY(-2px);
 }
