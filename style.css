@@ -1,37 +1,25 @@
-/*
- * NAInsurance - Main Stylesheet
- * Author: Naisya Yuen (nyr)
- * Version: 1.0.1
- * Last Updated: 20 September 2025
- * * Catatan: Ini adalah file gaya utama untuk platform NaInsurance.
- * Saya menggunakan variabel CSS (--nama-variabel) agar tema warna
- * dan ukuran mudah diubah di satu tempat.
- */
+/*Naisya Yuen Ra'af - 535240187*/
 
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
 
 /* Palet Warna & Variabel Utama */
 
 :root {
-    /* Saya pilih gradien ungu-biru sebagai warna utama, terasa profesional tapi tetap modern. */
     --primary-gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
     --secondary-gradient: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
     --accent-gradient: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
     /* Warna teks dan latar belakang dasar */
     --text-primary: #2d3748;
-    /* Untuk judul dan teks penting */
     --text-secondary: #718096;
-    /* Untuk sub-judul dan teks deskriptif */
     --white: #ffffff;
     --gray-50: #f7fafc;
     --gray-100: #edf2f7;
     --gray-200: #e2e8f0;
     --gray-800: #2d3748;
-    /* Warna status untuk feedback ke pengguna */
     --success: #48bb78;
     --error: #f56565;
     --warning: #ed8936;
-    /* Efek bayangan yang konsisten */
+    /* Efek bayangan */
     --shadow-sm: 0 1px 3px 0 rgba(0, 0, 0, 0.1);
     --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
     --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
@@ -73,11 +61,7 @@ body {
 }
 
 
-/* Elemen Dekoratif Latar Belakang */
-
-
-/* Saya tambahkan elemen-elemen ini biar latar belakangnya tidak terlalu sepi.
-   Pointer-events: none penting agar tidak mengganggu interaksi pengguna. */
+/* Saya tambahkan elemen-elemen ini biar latar belakangnya tidak terlalu sepi. */
 
 .floating-elements {
     position: fixed;
@@ -146,7 +130,7 @@ body {
 
 
 /* Header ini dibuat "mengambang" dengan efek blur (backdrop-filter)
-   untuk memberikan kesan modern. */
+   untuk kesan modern. */
 
 .header-parallax {
     background: rgba(255, 255, 255, 0.95);
@@ -217,7 +201,7 @@ nav {
 }
 
 
-/* Garis bawah animasi saat hover, efek kecil tapi penting */
+/* Garis bawah animasi saat hover */
 
 .nav-links a::after {
     content: '';
@@ -393,7 +377,7 @@ main {
 }
 
 
-/* Hero Section (Halaman Muka) */
+/* Hero Section */
 
 .hero-parallax {
     position: relative;
