@@ -13,7 +13,7 @@
 </head>
 
 <body>
-    <!-- Elements -->
+    <!-- Floating Elements -->
     <div class="floating-elements">
         <div class="floating-element" data-speed="0.5">
             <i class="fas fa-shield-alt"></i>
@@ -171,7 +171,7 @@
                 </div>
             </section>
 
-            <!-- Trusted Page -->
+            <!-- Trust Section -->
             <section class="trust-section" data-reveal>
                 <div class="container">
                     <div class="trust-content">
@@ -237,7 +237,7 @@
             </div>
         </div>
 
-        <!-- Signup -->
+        <!-- Signup Page -->
         <div id="signupPage" class="page-container">
             <div class="form-page animate-form">
                 <div class="form-header">
@@ -299,7 +299,7 @@
             </div>
         </div>
 
-        <!-- Lupa Pw -->
+        <!-- Forgot Password Page -->
         <div id="forgotPasswordPage" class="page-container">
             <div class="form-page animate-form">
                 <div class="form-header">
@@ -325,7 +325,7 @@
             </div>
         </div>
 
-        <!-- Reset Pw -->
+        <!-- Reset Password Page -->
         <div id="resetPasswordPage" class="page-container">
             <div class="form-page animate-form">
                 <div class="form-header">
@@ -358,7 +358,7 @@
             </div>
         </div>
 
-        <!-- Detail -->
+        <!-- Detail Page -->
         <div id="detailPage" class="page-container">
             <div class="detail-page animate-form">
                 <button class="btn btn-outline back-button" onclick="showPage('home')">
@@ -566,15 +566,15 @@
                     <div class="payment-methods">
                         <h4><i class="fas fa-credit-card"></i> Metode Pembayaran</h4>
                         <div class="payment-options">
-                            <div class="payment-option">
+                            <div class="payment-option" onclick="selectPaymentMethod(this)">
                                 <i class="fas fa-university"></i>
                                 <span>Virtual Account</span>
                             </div>
-                            <div class="payment-option">
+                            <div class="payment-option" onclick="selectPaymentMethod(this)">
                                 <i class="fas fa-credit-card"></i>
                                 <span>Kartu Kredit</span>
                             </div>
-                            <div class="payment-option">
+                            <div class="payment-option" onclick="selectPaymentMethod(this)">
                                 <i class="fas fa-mobile-alt"></i>
                                 <span>E-Wallet</span>
                             </div>
@@ -615,7 +615,7 @@
             </div>
         </div>
 
-        <!-- Bantuan -->
+        <!-- Help Modal -->
         <div id="helpModal" class="modal-overlay">
             <div class="modal-content">
                 <span class="modal-close" onclick="hideHelpModal()">&times;</span>
@@ -644,6 +644,84 @@
             </div>
         </div>
     </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <div class="footer-logo">
+                        <i class="fas fa-shield-alt"></i>
+                        <span>NaInsurance</span>
+                    </div>
+                    <p class="footer-description">
+                        Platform asuransi terpercaya yang memberikan perlindungan terbaik untuk Anda dan keluarga. Dengan lebih dari 50,000 pelanggan yang puas di seluruh Indonesia.
+                    </p>
+                    <div class="social-links">
+                        <a href="https://instagram.com/naisyayuen" class="social-link">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="https://linkedin.com/in/naisyayr" class="social-link">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="footer-section">
+                    <h4 class="footer-title">Produk Kami</h4>
+                    <ul class="footer-links">
+                        <li><a href="#" onclick="showProductDetail('health')">Asuransi Kesehatan</a></li>
+                        <li><a href="#" onclick="showProductDetail('car')">Asuransi Mobil</a></li>
+                        <li><a href="#" onclick="showProductDetail('life')">Asuransi Jiwa</a></li>
+                        <li><a href="#" onclick="scrollToProducts()">Lihat Semua Produk</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-section">
+                    <h4 class="footer-title">Layanan</h4>
+                    <ul class="footer-links">
+                        <li><a href="#" onclick="showHelpModal()">Pusat Bantuan</a></li>
+                        <li><a href="#" onclick="showPage('login')">Klaim Online</a></li>
+                        <li><a href="#" onclick="showPage('history')">Riwayat Polis</a></li>
+                        <li><a href="#" onclick="showHelpModal()">Customer Service</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-section">
+                    <h4 class="footer-title">Hubungi Kami</h4>
+                    <div class="contact-info">
+                        <div class="contact-item">
+                            <i class="fas fa-phone"></i>
+                            <div>
+                                <strong>Customer Service</strong>
+                                <span>0000-INSURANCE</span>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-mobile-phone"></i>
+                            <div>
+                                <strong>WhatsApp</strong>
+                                <span>+62 821-2263-7844</span>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-envelope"></i>
+                            <div>
+                                <strong>Email</strong>
+                                <span>naisyayr09@gmail.com</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <div class="footer-bottom-content">
+                    <p>&copy; 2025 NaInsurance.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
 
     <script src="script.js"></script>
 </body>

@@ -23,6 +23,7 @@ function initializeApp() {
     initializeScrollReveal();
     initializeHeader();
     startFloatingAnimation();
+    initializeInteractions();
 }
 
 // Efek parallax
@@ -545,7 +546,19 @@ function proceedToCheckout(event, type) {
     showPage('checkout');
 }
 
+function selectPaymentMethod(element) {
+    const options = document.querySelectorAll('.payment-option');
+    options.forEach(opt => opt.classList.remove('selected'));
+    element.classList.add('selected');
+}
+
 function finalizePurchase() {
+    const selectedPayment = document.querySelector('.payment-option.selected');
+    if (!selectedPayment) {
+        alert('Silakan pilih metode pembayaran terlebih dahulu.');
+        return; 
+    }
+
     const purchase = {
         product: currentTransaction.productName,
         type: currentTransaction.type,
@@ -568,6 +581,7 @@ function finalizePurchase() {
             break;
     }
 
+    selectedPayment.classList.remove('selected');
     currentTransaction = {};
     alert('Pembayaran berhasil! Terima kasih telah membeli produk kami.');
     showPage('history');
@@ -688,18 +702,8 @@ function formatRupiah(amount) {
     }).format(amount);
 }
 
-// Tombol efek
-function addLoadingState(element) {
-    element.classList.add('loading');
-    element.style.pointerEvents = 'none';
-}
-
-function removeLoadingState(element) {
-    element.classList.remove('loading');
-    element.style.pointerEvents = 'auto';
-}
-
-document.addEventListener('DOMContentLoaded', function() {
+// Initialize Interactions
+function initializeInteractions() {
     const buttons = document.querySelectorAll('.btn');
     
     buttons.forEach(button => {
@@ -727,10 +731,8 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         });
     });
-});
 
-// Smooth transisi
-document.addEventListener('DOMContentLoaded', function() {
+    // Input effects
     const inputs = document.querySelectorAll('input, select, textarea');
     
     inputs.forEach(input => {
@@ -742,22 +744,33 @@ document.addEventListener('DOMContentLoaded', function() {
             this.parentElement.style.transform = 'translateY(0)';
         });
     });
-});
 
-// Bantuan
-document.addEventListener('click', function(event) {
-    const modal = document.querySelector('.modal-overlay.active');
-    if (modal && event.target === modal) {
-        hideHelpModal();
-    }
-});
-
-// Keyboard 
-document.addEventListener('keydown', function(event) {
-    if (event.key === 'Escape') {
+    // Modal interactions
+    document.addEventListener('click', function(event) {
         const modal = document.querySelector('.modal-overlay.active');
-        if (modal) {
+        if (modal && event.target === modal) {
             hideHelpModal();
         }
-    }
-});
+    });
+
+    // Keyboard interactions
+    document.addEventListener('keydown', function(event) {
+        if (event.key === 'Escape') {
+            const modal = document.querySelector('.modal-overlay.active');
+            if (modal) {
+                hideHelpModal();
+            }
+        }
+    });
+}
+
+// Loading state functions
+function addLoadingState(element) {
+    element.classList.add('loading');
+    element.style.pointerEvents = 'none';
+}
+
+function removeLoadingState(element) {
+    element.classList.remove('loading');
+    element.style.pointerEvents = 'auto';
+}
