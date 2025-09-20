@@ -1098,7 +1098,7 @@ main {
 }
 
 
-/* Saya pakai pseudo-element ::before untuk membuat bullet point kustom. Lebih fleksibel. */
+/* Saya pakai pseudo-element ::before untuk membuat bullet point kustom, lebih fleksibel */
 
 .detail-info li::before {
     content: '•';
@@ -1354,7 +1354,7 @@ main {
 }
 
 
-/* Untuk Mobile Kecil */
+/* Untuk mobile kecil */
 
 @media (max-width: 480px) {
     .container {
@@ -1370,7 +1370,7 @@ main {
 }
 
 
-/* Kustomisasi Scrollbar (Sentuhan Akhir) */
+/* Kustomisasi Scrollbar */
 
 ::-webkit-scrollbar {
     width: 6px;
@@ -1390,7 +1390,7 @@ main {
 }
 
 
-/* Status Loading (untuk interaksi JavaScript) */
+/* Status Loading */
 
 .loading {
     pointer-events: none;
@@ -1410,9 +1410,6 @@ main {
     border-radius: 50%;
     animation: spin 1s linear infinite;
 }
-
-
-/* style.css */
 
 
 /* Footer */
@@ -1595,7 +1592,7 @@ main {
 }
 
 
-/* Penyesuaian Footer untuk Layar Lebih Kecil (Responsif) */
+/* Penyesuaian footer buat layar kecil */
 
 @media (max-width: 1024px) {
     .footer-content {
